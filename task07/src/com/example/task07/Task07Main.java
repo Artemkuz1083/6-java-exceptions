@@ -1,5 +1,7 @@
 package com.example.task07;
 
+import java.io.IOException;
+
 public class Task07Main {
 
     public static final String CHECKED = "checked";
@@ -15,10 +17,13 @@ public class Task07Main {
         //todo напишите здесь свою корректную реализацию этого метода, вместо существующей
         try {
             processor.process(); //todo вы можете заменить реализацию этого метода для ручного дебага
+            return NONE;
         } catch (Exception e) {
-
+            if (e instanceof RuntimeException) {
+                return UNCHECKED; // Непроверяемое исключение
+            } else {
+                return CHECKED; // Проверяемое исключение
+            }
         }
-        return null;
     }
-
 }
